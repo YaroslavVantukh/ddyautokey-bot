@@ -114,13 +114,8 @@ async def delete_later(bot, chat_id, message_id, delay=10):
         pass
 
 async def send_temp(update, context, text, delay=10):
-    thread_id = None
-    if update.effective_message:
-        thread_id = update.effective_message.message_thread_id
-
     msg = await context.bot.send_message(
         chat_id=update.effective_chat.id,
-        message_thread_id=thread_id,
         text=text,
         parse_mode=ParseMode.HTML,
         disable_web_page_preview=True,
@@ -313,7 +308,7 @@ def main():
     application.add_handler(MessageHandler(filters.StatusUpdate.NEW_CHAT_MEMBERS, welcome))
     application.add_handler(
         MessageHandler(
-            ~filters.COMMAND,
+            (filters.TEXT | filters.CAPTION) & ~filters.COMMAND,
             remember_message,
         )
     )
