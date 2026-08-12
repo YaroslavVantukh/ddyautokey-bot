@@ -298,22 +298,8 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "Команди: /rep, /top"
     )
 
-async def post_init(app: Application):
-    if BASE_URL:
-        await app.bot.set_webhook(
-            url=f"{BASE_URL}/telegram",
-            secret_token=WEBHOOK_SECRET,
-            allowed_updates=["message", "message_reaction"],
-            drop_pending_updates=False,
-        )
-
 def main():
-    application = (
-        Application.builder()
-        .token(TOKEN)
-        .post_init(post_init)
-        .build()
-    )
+    application = Application.builder().token(TOKEN).build()
 
     application.add_handler(CommandHandler("start", start_command))
     application.add_handler(CommandHandler("rep", rep_command))
