@@ -10,3 +10,13 @@ services:
         sync: false
       - key: WEBHOOK_SECRET
         generateValue: true
+      - key: DB_HOST
+        value: s1.ho.ua
+      - key: DB_PORT
+        value: "3306"
+      - key: DB_NAME
+        value: ddyautokey1
+      - key: DB_USER
+        value: ddyautokey1
+      - key: DB_PASSWORD
+        value: ddyautokey1
