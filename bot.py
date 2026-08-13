@@ -23,7 +23,7 @@ RENDER_EXTERNAL_HOSTNAME = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
 WEBHOOK_BASE_URL = os.environ.get("WEBHOOK_BASE_URL")
 WEBHOOK_SECRET = os.environ.get("WEBHOOK_SECRET", "ddyautokey-secret")
 
-DB_HOST = os.environ.get("DB_HOST", "s1.ho.ua")
+DB_HOST = os.environ.get("DB_HOST", "db1.ho.ua")
 DB_PORT = int(os.environ.get("DB_PORT", "3306"))
 DB_NAME = os.environ.get("DB_NAME", "ddyautokey1")
 DB_USER = os.environ.get("DB_USER", "ddyautokey1")
